@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { v4 } from "uuid";
 require("dotenv").config();
-const hashPassword = (password) =>
+export const hashPassword = (password) =>
   bcrypt.hashSync(password, bcrypt.genSaltSync(12));
 
 export const registerService = ({ phone, password, name }) =>

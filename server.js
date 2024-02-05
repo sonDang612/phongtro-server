@@ -3,6 +3,7 @@ require("dotenv").config();
 import cors from "cors";
 import initRoutes from "./src/routes";
 import connectDB from "./src/config/connectDB";
+import generateCode from "./src/utils/generateCode";
 const app = express();
 app.use(
   cors({
@@ -10,7 +11,6 @@ app.use(
     methods: ["POST", "GET", "PUT", "DELETE"],
   })
 );
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
