@@ -32,6 +32,14 @@ export const registerService = ({ phone, password, name }) =>
           ? "Register is successfully"
           : "Phone number has been already used!",
         token: token || null,
+        user: token
+          ? {
+              id: response[0].id,
+              phone: response[0].phone,
+              avatar: response[0].avatar,
+              name: response[0].name,
+            }
+          : null,
       });
     } catch (error) {
       reject(error);
@@ -56,11 +64,18 @@ export const loginService = ({ phone, password }) =>
           process.env.SECRET_KEY,
           { expiresIn: "2d" }
         );
-
       resolve({
         err: token ? 0 : 2,
         msg: token ? "Login is successfully" : "Phone or Password is wrong",
         token: token || null,
+        user: token
+          ? {
+              id: response.id,
+              phone: response.phone,
+              avatar: response.avatar,
+              name: response.name,
+            }
+          : null,
       });
     } catch (error) {
       reject(error);
