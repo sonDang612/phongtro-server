@@ -2,9 +2,9 @@
   "name": "phongtro-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node server.js",
+    "start": "nodemon --exec babel-node index.js",
     "migrate": "cd ./src && npx sequelize db:migrate && cd ../"
   },
   "keywords": [],
