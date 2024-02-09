@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Label.hasOne(models.Label, {
+      Label.hasOne(models.Post, {
         foreignKey: "labelCode",
         as: "label",
       });

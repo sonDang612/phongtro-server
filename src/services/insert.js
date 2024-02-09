@@ -48,6 +48,13 @@ const insertDataBody = async (data, categoryCode) => {
         code: provinceCode,
         value: item?.header?.address?.split(",")?.slice(-1)[0],
       });
+    await db.Label.findOrCreate({
+      where: { code: labelCode },
+      defaults: {
+        code: labelCode,
+        value: item?.header?.class?.classType,
+      },
+    });
     await db.Post.create({
       id: postId,
       title: item?.header?.title,
@@ -81,13 +88,6 @@ const insertDataBody = async (data, categoryCode) => {
       id: imagesId,
       image: JSON.stringify(item?.images),
     });
-    await db.Label.findOrCreate({
-      where: { code: labelCode },
-      defaults: {
-        code: labelCode,
-        value: item?.header?.class?.classType,
-      },
-    });
 
     await db.Overview.create({
       id: overviewId,
@@ -105,7 +105,6 @@ const insertDataBody = async (data, categoryCode) => {
       expired: item?.overview?.content?.find((i) => i.name === "Ngày hết hạn:")
         ?.content,
     });
-
     await db.User.create({
       id: userId,
       name: item?.contact?.content?.find((i) => i.name === "Liên hệ:")?.content,
