@@ -54,6 +54,7 @@ export const getPostService = (id) =>
             as: "user",
             attributes: ["name", "zalo", "phone"],
           },
+          { model: db.Label, as: "label", attributes: ["code", "value"] },
         ],
         attributes: ["id", "title", "star", "address", "description"],
       });
