@@ -73,7 +73,14 @@ export const getPostService = (id) =>
             ],
           },
         ],
-        attributes: ["id", "title", "star", "address", "description"],
+        attributes: [
+          "id",
+          "title",
+          "star",
+          "address",
+          "description",
+          "categoryCode",
+        ],
       });
       resolve({
         err: response ? 0 : 1,
@@ -106,8 +113,33 @@ export const getPostsLimitService = (page, query) =>
             as: "user",
             attributes: ["name", "zalo", "phone"],
           },
+          {
+            model: db.Label,
+            as: "label",
+            attributes: ["code", "value"],
+          },
+          {
+            model: db.Overview,
+            as: "overview",
+            attributes: [
+              "code",
+              "type",
+              "bonus",
+              "area",
+              "target",
+              "created",
+              "expired",
+            ],
+          },
         ],
-        attributes: ["id", "title", "star", "address", "description"],
+        attributes: [
+          "id",
+          "title",
+          "star",
+          "address",
+          "description",
+          "categoryCode",
+        ],
       });
       resolve({
         err: response ? 0 : 1,
