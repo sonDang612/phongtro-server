@@ -1,9 +1,8 @@
-import express from "express";
-require("dotenv").config();
 import cors from "cors";
-import initRoutes from "./src/routes";
+import express from "express";
 import connectDB from "./src/config/connectDB";
-import generateCode from "./src/utils/generateCode";
+import initRoutes from "./src/routes";
+require("dotenv").config();
 const app = express();
 app.use(
   cors({
