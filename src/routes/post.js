@@ -7,6 +7,7 @@ router.get("/all", postController.getPosts);
 router.get("/limit", postController.getPostsLimit);
 router.get("/newest-posts", postController.getNewestPosts);
 router.get("/get/:id", postController.getPost);
+router.get("/category/:categoryCode", postController.getPostsByCategory);
 
 router.use(verifyToken);
 router.post("/create", postController.createPost);
